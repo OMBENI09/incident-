@@ -1,0 +1,56 @@
+{% extends 'incidents/base.html' %}
+
+{% block title %}Incident List{% endblock %}
+
+{% block content %}
+  <div class="incident-list-container">
+    <h2>Incident List</h2>
+
+    {% if incidents %}
+      <table class="incident-table">
+        <thead>
+          <tr>
+            <th>Incident Title</th>
+            <th>Status</th>
+            <th>Date Reported</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for incident in incidents %}
+            <tr>
+              <td>
+                <a href="{% url 'incidents:incident_detail' incident.id %}">{{ incident.title }}</a>
+              </td>
+              <td>
+                <span class="status-badge {{ incident.status|lower }}">{{ incident.status }}</span>
+              </td>
+              <td>{{ incident.date_reported|date:"Y-m-d" }}</td>
+              <td>
+                <a href="{% url 'incidents:incident_detail' incident.id %}" title="View Details" class="action-icon">
+                  <i class="fa fa-eye"></i>
+                </a>
+                {% if user.is_authenticated and user == incident.reporter %}
+                  <a href="{% url 'incidents:edit_incident' incident.id %}" title="Edit Incident" class="action-icon">
+                    <i class="fa fa-edit"></i>
+                  </a>
+                {% endif %}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>No incidents reported yet.</p>
+    {% endif %}
+
+    <hr>
+    <div class="report-incident">
+      {% if user.is_authenticated %}
+        <a href="{% url 'incidents:report_incident' %}" class="btn btn-primary">Report a New Incident</a>
+      {% else %}
+        <p><a href="{% url 'login' %}">Sign in</a> to report a new incident.</p>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

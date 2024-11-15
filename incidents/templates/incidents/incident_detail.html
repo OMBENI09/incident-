@@ -1,0 +1,65 @@
+{% extends 'incidents/base.html' %}
+
+{% block title %}Incident Details{% endblock %}
+
+{% block content %}
+  <div class="incident-detail-container">
+    <h2>{{ incident.title }}</h2>
+    
+    <p><strong>Reporter:</strong> {{ incident.reporter }}</p>
+    <p><strong>Date Reported:</strong> {{ incident.date_reported|date:"F j, Y" }}</p>
+    <p><strong>Status:</strong> {{ incident.status }}</p>
+    <p><strong>Description:</strong></p>
+    <p>{{ incident.description }}</p>
+
+    {% if incident.image %}
+      <div class="incident-image">
+        <img src="{{ incident.image.url }}" alt="Incident Image" class="responsive-image">
+      </div>
+    {% endif %}
+
+    <hr>
+
+    <!-- Navigation Links -->
+    <div class="navigation-links">
+      <a href="{% url 'incidents:incident_list' %}" class="btn btn-secondary">Back to Incident List</a>
+      
+      {% if user.is_authenticated and user == incident.reporter %}
+        <a href="{% url 'incidents:edit_incident' incident.id %}" class="btn btn-warning">Edit Incident</a>
+      {% endif %}
+    </div>
+
+    <!-- Sign Out Button -->
+    {% if user.is_authenticated %}
+      <form action="{% url 'logout' %}" method="post" class="inline-form">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Sign Out</button>
+      </form>
+    {% endif %}
+
+    <!-- Comments Section -->
+    <hr>
+    <h3>Comments</h3>
+    <div class="comments-section">
+      {% for comment in comments %}
+        <div class="comment">
+          <p><strong>{{ comment.user }}:</strong> {{ comment.text }}</p>
+          <p><em>{{ comment.created_at|date:"F j, Y, g:i a" }}</em></p>
+        </div>
+      {% empty %}
+        <p>No comments yet. Be the first to comment!</p>
+      {% endfor %}
+    </div>
+
+    <!-- Comment Form -->
+    {% if user.is_authenticated %}
+      <form method="post" class="comment-form">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <button type="submit" class="btn btn-primary">Add Comment</button>
+      </form>
+    {% else %}
+      <p><a href="{% url 'login' %}">Sign in</a> to add a comment.</p>
+    {% endif %}
+  </div>
+{% endblock %}

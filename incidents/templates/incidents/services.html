@@ -1,0 +1,29 @@
+<!-- services.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="services">
+    <h2>Our Services</h2>
+    <p>Our Incident and Report Management System is a user-friendly online platform designed to streamline the reporting process and improve police response times.</p>
+    <p>We endeavor to serve you professionally, be accessible, and keep you informed.</p>
+    <p>Citizens can easily submit reports of crimes, accidents, and other incidents directly from their devices, providing critical information to law enforcement.</p>
+
+    <h3>Crime Reporting</h3>
+    <p>Report crimes or incidents to the authorities quickly and securely, helping us respond effectively and in a timely manner.</p>
+
+    <h3>Information and Updates</h3>
+    <p>Stay updated with important announcements, crime alerts, and public safety information relevant to your area.</p>
+
+    <h3>Timely Applications</h3>
+    <p>Submit your applications for various services such as permits, licenses, and other legal requests, all in one place.</p>
+</section>
+{% endblock %}
+
+{% block footer %}
+<footer>
+    <p>&copy; {{ current_year }} Rwanda National Police - All Rights Reserved</p>
+</footer>
+{% endblock %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/services.css' %}">

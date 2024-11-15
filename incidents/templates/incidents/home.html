@@ -1,0 +1,31 @@
+{% extends 'incidents/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  <section class="welcome">
+    <h2>Welcome to the Incident Management System</h2>
+    <p>Our platform enables efficient incident reporting and management to ensure community safety and support law enforcement efforts.</p>
+    {% if user.is_authenticated %}
+      <a href="{% url 'incidents:report_incident' %}" class="btn btn-primary">Report an Incident</a>
+    {% else %}
+      <p>Please <a href="{% url 'login' %}">Sign In</a> or <a href="{% url 'signup' %}">Sign Up</a> to report an incident.</p>
+    {% endif %}
+  </section>
+
+  <section class="features">
+    <h3>Why Use Our System?</h3>
+    <ul>
+      <li>Easy incident reporting</li>
+      <li>Real-time updates on reported cases</li>
+      <li>Collaborative platform for law enforcement and citizens</li>
+      <li>Data-driven insights for better decision-making</li>
+    </ul>
+  </section>
+{% endblock %}
+
+{% block footer %}
+  <footer>
+    <p>&copy; {{ current_year|default:2024 }} Incident Management System. All rights reserved.</p>
+  </footer>
+{% endblock %}

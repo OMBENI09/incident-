@@ -1,0 +1,122 @@
+{% extends 'incidents/base.html' %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+<div class="contact-container">
+    <div class="contact-form-section">
+        <h2>Get In Touch</h2>
+        <form action="{% url 'incidents:contact_submit' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" name="name" placeholder="Names" required>
+                <i class="icon-user"></i>
+            </div>
+            <div class="form-group">
+                <input type="text" name="phone" placeholder="Phone number" required>
+                <i class="icon-phone"></i>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Type email" required>
+                <i class="icon-envelope"></i>
+            </div>
+            <div class="form-group">
+                <input type="text" name="subject" placeholder="Type Subject" required>
+                <i class="icon-subject"></i>
+            </div>
+            <div class="form-group">
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <i class="icon-pencil"></i>
+            </div>
+            <button type="submit" class="btn-submit">Send Now</button>
+        </form>
+    </div>
+
+    <div class="contact-info-section">
+        <h2>Connect with us</h2>
+        <p>Please contact us at our General Headquarters with the details below. Use the form to contact us directly.</p>
+        <p><strong>Social Media:</strong> 
+            <a href="#"><i class="icon-twitter"></i></a>
+            <a href="#"><i class="icon-facebook"></i></a>
+            <a href="#"><i class="icon-youtube"></i></a>
+            <a href="#"><i class="icon-linkedin"></i></a>
+            <a href="#"><i class="icon-instagram"></i></a>
+        </p>
+        <p><strong>Address:</strong> P.O. Box 6304 KIGALI - RWANDA</p>
+        <p><strong>General Contact:</strong> +250 788311155</p>
+        <p><strong>Email:</strong> info@police.gov.rw</p>
+        <p><strong>Customer Care:</strong> +250 788311533</p>
+        <p><strong>Automobile:</strong> +250 788311734</p>
+    </div>
+</div>
+
+<style>
+    .contact-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-between;
+    }
+    
+    .contact-form-section, .contact-info-section {
+        flex: 1 1 45%;
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form-section h2, .contact-info-section h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .form-group {
+        position: relative;
+        margin-bottom: 15px;
+    }
+
+    .form-group input, .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        padding-left: 35px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        outline: none;
+    }
+
+    .form-group i {
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #aaa;
+    }
+
+    .btn-submit {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .btn-submit:hover {
+        background-color: #0056b3;
+    }
+
+    .contact-info-section a {
+        margin-right: 10px;
+        font-size: 20px;
+        color: #555;
+    }
+
+    .contact-info-section a:hover {
+        color: #007bff;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,82 @@
+/* services.css */
+
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fafafa; /* Light background for better contrast */
+}
+
+/* Header Styling */
+header {
+    background-color: #007bff; /* Rwanda National Police Blue */
+    color: whitesmoke;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for header */
+}
+
+/* Section Styling for Services */
+section.services {
+    background-color: #f0f0f0; /* Light gray background */
+    padding: 40px;
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 8px; /* Rounded corners */
+}
+
+section.services h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #007bff; /* Matches the header color */
+    font-weight: bold;
+}
+
+section.services p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #333; /* Dark text for better readability */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto; /* Center-align paragraphs */
+}
+
+/* Subheading Styling */
+section.services h3 {
+    font-size: 24px;
+    color: #007bff;
+    margin-top: 30px;
+    font-weight: bold;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 16px;
+    border-top: 2px solid #0056b3; /* Darker blue border for separation */
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    section.services {
+        padding: 20px;
+    }
+
+    section.services h2 {
+        font-size: 28px;
+    }
+
+    section.services p, section.services h3 {
+        font-size: 16px;
+    }
+}

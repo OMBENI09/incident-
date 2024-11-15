@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <section class="search-results">
+    <h1>Search Results</h1>
+
+    {% if query %}
+      <p>Showing results for: <strong>{{ query }}</strong></p>
+    {% else %}
+      <p>Please enter a search term to find incidents.</p>
+    {% endif %}
+
+    {% if incidents %}
+      <ul class="incident-list">
+        {% for incident in incidents %}
+          <li class="incident-item">
+            <a href="{% url 'incidents:incident_detail' incident.id %}" class="incident-title">
+              <strong>{{ incident.title }}</strong>
+            </a>
+            <span class="incident-date">
+              - Reported on {{ incident.date_reported|date:"F j, Y" }} by {{ incident.reporter.username }}
+            </span>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No incidents found for your search criteria.</p>
+    {% endif %}
+  </section>
+{% endblock %}

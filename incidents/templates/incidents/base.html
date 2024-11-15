@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Incident Management System{% endblock %}</title>
+  {% load static %}
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/about.css' %}">
+  <link rel="stylesheet" href="{% static 'css/contacts.css' %}">
+  <link rel="stylesheet" href="{% static 'css/blogs.css' %}">
+  <link rel="stylesheet" href="{% static 'css/services.css' %}">
+  <link rel="stylesheet" href="{% static 'css/faq.css' %}">
+  <link rel="icon" href="{% static 'images/left-logo.png' %}" type="image/png"> <!-- Updated Favicon -->
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+
+  <!-- First Header: Logos and Title -->
+  <header class="logo-header">
+    <div class="logo-container">
+      <a href="{% url 'incidents:incident_list' %}">
+        <img src="{% static 'images/left-logo.png' %}" alt="Organization Logo" class="left-logo"> <!-- Left Logo -->
+      </a>
+      <h1>Incident Management System</h1> <!-- Page Title -->
+      <img src="{% static 'images/right-logo.png' %}" alt="Partner Logo" class="right-logo"> <!-- Right Logo -->
+    </div>
+  </header>
+
+  <!-- Second Header: Navigation -->
+  <header class="nav-header">
+    <nav aria-label="Main Navigation">
+      <ul>
+        <li><a href="{% url 'incidents:incident_list' %}">Home</a></li>
+        <li><a href="{% url 'incidents:about' %}">About</a></li>
+        <li><a href="{% url 'incidents:contacts' %}">Contacts</a></li>
+        <li><a href="{% url 'incidents:services' %}">Services</a></li>
+        <li><a href="{% url 'incidents:blogs' %}">Blogs</a></li>
+        <li><a href="{% url 'incidents:faq' %}">FAQ</a></li>
+        {% if user.is_authenticated %}
+          <li><a href="{% url 'incidents:report_incident' %}">Report Incident</a></li>
+          <li><a href="{% url 'incidents:logout' %}">Sign Out</a></li>
+          <li><a href="{% url 'incidents:profile' %}">Profile</a></li>
+        {% else %}
+          <li><a href="{% url 'incidents:login' %}">Sign In</a></li>
+          <li><a href="{% url 'incidents:signup' %}">Sign Up</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+
+    <!-- Search Bar -->
+    <form method="GET" action="{% url 'incidents:incident_search' %}" class="search-form" aria-label="Search incidents">
+      <input type="text" name="q" placeholder="Search incidents..." class="search-input" aria-label="Search incidents">
+      <button type="submit" class="search-button">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <span class="sr-only">Search</span>
+      </button>
+    </form>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; {{ current_year|default:2024 }} Incident Management System - All Rights Reserved</p>
+  </footer>
+
+  {% block scripts %}
+  <!-- Additional JavaScript -->
+  {% endblock %}
+
+</body>
+</html>

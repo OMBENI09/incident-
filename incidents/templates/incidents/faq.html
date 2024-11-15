@@ -1,0 +1,39 @@
+<!-- faq.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    
+    <div class="question-answer">
+        <h3>What is the Incident Reporting and Management System?</h3>
+        <p>The system allows users to report incidents online, track their progress, and assist law enforcement in creating a safer community.</p>
+    </div>
+
+    <div class="question-answer">
+        <h3>Who can use this system?</h3>
+        <p>Any registered user can report incidents and access various services. Law enforcement officers use it for case management and analysis.</p>
+    </div>
+
+    <div class="question-answer">
+        <h3>How do I report an incident?</h3>
+        <p>Once logged in, navigate to the 'Report Incident' page, fill in the necessary details, and submit the form.</p>
+    </div>
+
+    <div class="question-answer">
+        <h3>Is my data secure?</h3>
+        <p>Yes, we prioritize your data's security with modern encryption and secure authentication methods.</p>
+    </div>
+
+    <div class="question-answer">
+        <h3>How can I track my reported incidents?</h3>
+        <p>You can track your reported incidents by logging in and viewing the 'Incident History' section in your profile.</p>
+    </div>
+</section>
+{% endblock %}
+
+{% block footer %}
+<footer>
+    <p>&copy; {{ current_year }} Rwanda National Police - All Rights Reserved</p>
+</footer>
+{% endblock %}

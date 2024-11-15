@@ -1,0 +1,277 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: darkblue;
+}
+
+/* General container styling for main sections */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header styles */
+header.logo-header {
+    background-color: #003366;
+    color: #fff;
+    padding: 10px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #ffd700;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.left-logo,
+.right-logo {
+    width: 100px;
+    height: auto;
+    margin: 0 9cap;
+}
+
+header.nav-header {
+    background-color: #003366;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    padding: 8px 13px;
+    border-radius: 4px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #ffd700;
+    color: #002b80;
+}
+
+/* Search Bar */
+.search-form {
+    margin-top: 5px;
+    display: flex;
+    justify-content: right;
+}
+
+.search-input {
+    padding: 5px;
+    border: 3px solid gold;
+    border-radius: 20px 0 0 20px;
+    outline: none;
+    font-size: 10px;
+    width:90px;
+}
+
+.search-button {
+    background: #004085;
+    color: #fff;
+    border: none;
+    border-radius: 2cap 2cap 2cap 2cap;
+    padding: 10px 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.search-button:hover {
+    background: #003366;
+}
+
+.search-button i {
+    font-size: 13px;
+}
+
+/* Incident table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 7px;
+    text-align: left;
+}
+
+table th {
+    background: #003366;
+    color: white;
+}
+
+.incident-table tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.incident-table tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.status-badge.open {
+    background-color: #28a745;
+    color: #ffffff;
+}
+
+.status-badge.in-progress {
+    background-color: #ffc107;
+    color: darkblue;
+}
+
+.status-badge.closed {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+/* Background for Edit Incident section */
+body.edit-incident-page {
+    background-image: url('../images/image_4.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+}
+
+/* Background for Report Incident section */
+.report-incident {
+    background-image: url('../images/image (2).png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+    color: white;
+}
+
+/* Form styles */
+form {
+    margin-top: 20px;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    padding: 10px 15px;
+    background: #003366;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background: #003366;
+}
+
+form label {
+    color: olive;
+    font-weight: bold;
+}
+
+/* Main content styles */
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: darkblue;
+    color: #fff;
+    width: 100%;
+    border-top: 4px solid #ffd700;
+}
+
+footer a {
+    color: #ffd700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+/* Buttons */
+.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #004085;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn-primary:hover {
+    background-color: #003366;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .logo-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    main {
+        margin: 20px 10px;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+    .logo-header {
+        padding: 15px 20px;
+    }
+}

@@ -1,0 +1,33 @@
+<!-- blogs.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="blogs">
+    <h2>Our Blog</h2>
+    <p>Stay informed with the latest news, updates, and insights from the Rwanda National Police. Our blog covers a range of topics, including safety tips, community initiatives, and highlights of recent achievements.</p>
+
+    <article class="blog-post">
+        <h3>Community Safety Tips</h3>
+        <p>Learn how to keep yourself and your community safe with these practical tips.</p>
+        <a href="#">Read more</a>
+    </article>
+
+    <article class="blog-post">
+        <h3>Highlights of Recent Cases</h3>
+        <p>A look into some of the cases we've handled recently and how justice was served.</p>
+        <a href="#">Read more</a>
+    </article>
+
+    <article class="blog-post">
+        <h3>How Technology is Enhancing Public Safety</h3>
+        <p>Discover how we're using the latest technology to improve public safety and our response time.</p>
+        <a href="#">Read more</a>
+    </article>
+</section>
+{% endblock %}
+
+{% block footer %}
+<footer>
+    <p>&copy; {{ current_year }} Rwanda National Police - All Rights Reserved</p>
+</footer>
+{% endblock %}

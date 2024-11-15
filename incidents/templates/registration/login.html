@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+
+{% block title %}Login - Incident Management System{% endblock %}
+
+{% block content %}
+<main>
+    <div class="login-container">
+        <h1>Incident Management System - Login</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <div class="input-group">
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <label for="password">Password:</label>
+            <div class="input-group">
+                <input type="password" id="password" name="password" required>
+                <span id="togglePassword" class="eye-icon">
+                    <i class="fas fa-eye"></i>
+                </span>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="{% url 'incidents:signup' %}">Sign up here.</a></p>
+    </div>
+</main>
+{% endblock %}
+
+{% block styles %}
+<style>
+    /* Basic reset and font */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Full-height layout */
+    html, body {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Centering the form */
+    body {
+        justify-content: center;
+        align-items: center;
+        background-color: #f4f4f9;
+    }
+
+    main {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 20px;
+    }
+
+    .login-container {
+        background-color: #ffffff;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        max-width: 420px;
+        width: 100%;
+        text-align: center;
+    }
+
+    h1 {
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+        color: #333;
+    }
+
+    label {
+        text-align: left;
+        color: #333;
+        font-weight: bold;
+        margin-top: 1.5rem;
+        display: block;
+    }
+
+    .input-group {
+        position: relative;
+        margin-bottom: 1.5rem;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+        width: 100%;
+        padding: 0.75rem;
+        padding-right: 2.5rem;  /* Space for the icon inside */
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1rem;
+    }
+
+    /* Position the eye icon inside the input field */
+    .eye-icon {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 1.2rem;
+        color: #555;
+        cursor: pointer;
+    }
+
+    button {
+        width: 100%;
+        padding: 0.75rem;
+        background-color: #003366;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 1.1rem;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #002244;
+    }
+
+    p a {
+        color: #003366;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    p a:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const togglePassword = document.querySelector('#togglePassword');
+    const passwordField = document.querySelector('#password');
+
+    togglePassword.addEventListener('click', function () {
+        // Toggle password visibility
+        const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordField.setAttribute('type', type);
+        // Toggle the eye icon
+        this.querySelector('i').classList.toggle('fa-eye-slash');
+    });
+</script>
+{% endblock %}

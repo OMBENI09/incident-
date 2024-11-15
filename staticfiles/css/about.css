@@ -1,0 +1,60 @@
+/* About page styles */
+
+.about-section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-section h1, 
+.about-section h2 {
+    text-align: center;
+    color: #003366; /* Dark blue for headings */
+    margin-bottom: 15px;
+}
+
+.about-section p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.about-section ul {
+    list-style-type: disc; /* Add bullet points for better readability */
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+.about-section ul li {
+    margin: 10px 0;
+    font-size: 1em;
+    color: #555;
+}
+
+.about-section ul li strong {
+    color: #007bff; /* Accent color for important terms */
+}
+
+/* Add responsive design */
+@media (max-width: 768px) {
+    .about-section {
+        padding: 15px;
+    }
+
+    .about-section h1, 
+    .about-section h2 {
+        font-size: 1.5em;
+    }
+
+    .about-section p {
+        font-size: 1em;
+    }
+
+    .about-section ul li {
+        font-size: 0.95em;
+    }
+}
